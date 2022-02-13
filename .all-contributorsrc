@@ -1,0 +1,42 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "link-discord",
+      "name": "Link",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50463727?v=4",
+      "profile": "https://github.com/link-discord",
+      "contributions": [
+        "data"
+      ]
+    },
+    {
+      "login": "Emgimeer-Bazder",
+      "name": "Emgimeer-Bazder",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17608446?v=4",
+      "profile": "http://www.pazder.ca",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "GavriloviciEduard",
+      "name": "Gavrilovici Eduard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/33176335?v=4",
+      "profile": "https://github.com/GavriloviciEduard",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "ClashRoyaleBuildABot",
+  "projectOwner": "Pbatch",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
