@@ -14,17 +14,14 @@ from src.data.constants import (
     CARD_Y,
     CARD_INIT_X,
     CARD_DELTA_X,
-    SCREEN_CONFIG
+    SCREEN_CONFIG,
 )
-from src.screen import Screen
+from src.utils.screen import Screen
 from src.state.detector import Detector
 
 
 class Bot:
-    def __init__(self, card_names,
-                 action_class=Action,
-                 auto_start=True,
-                 debug=False):
+    def __init__(self, card_names, action_class=Action, auto_start=True, debug=False):
         self.card_names = card_names
         self.action_class = action_class
         self.auto_start = auto_start
@@ -66,9 +63,9 @@ class Bot:
         Calculate which tiles we are allowed to play on
         """
         tiles = ALLY_TILES
-        if self.state['numbers']['left_enemy_princess_hp']['number'] == 0:
+        if self.state["numbers"]["left_enemy_princess_hp"]["number"] == 0:
             tiles += LEFT_PRINCESS_TILES
-        if self.state['numbers']['right_enemy_princess_hp']['number'] == 0:
+        if self.state["numbers"]["right_enemy_princess_hp"]["number"] == 0:
             tiles += RIGHT_PRINCESS_TILES
         return tiles
 
@@ -82,13 +79,20 @@ class Bot:
         # An action is a tuple (card_index, tile_x, tile_y)
         actions = []
         for i in range(4):
-            if int(self.state['numbers']['elixir']['number']) >= self.state['cards'][i + 1]['cost']:
-                if self.state['cards'][i + 1]['type'] == 'spell':
+            if (
+                int(self.state["numbers"]["elixir"]["number"])
+                >= self.state["cards"][i + 1]["cost"]
+            ):
+                if self.state["cards"][i + 1]["type"] == "spell":
                     tiles = all_tiles
                 else:
                     tiles = valid_tiles
-                actions.extend([self.action_class(i, x, y, *self.state['cards'][i + 1].values())
-                                for (x, y) in tiles])
+                actions.extend(
+                    [
+                        self.action_class(i, x, y, *self.state["cards"][i + 1].values())
+                        for (x, y) in tiles
+                    ]
+                )
 
         return actions
 
@@ -99,7 +103,7 @@ class Bot:
         # Try to click a button to get closer to starting a game
         if self.auto_start:
             for name, bounding_box, click_coordinates in SCREEN_CONFIG:
-                if self.state['screen'][name] and 'name' != 'in_game':
+                if self.state["screen"][name] and "name" != "in_game":
                     self.screen.click(*click_coordinates)
 
     def play_action(self, action):

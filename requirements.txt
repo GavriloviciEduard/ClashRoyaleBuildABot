@@ -4,3 +4,7 @@ numpy
 onnxruntime
 imagehash
 mss
+pure-python-adb
+
+#dev
+black 
