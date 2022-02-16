@@ -248,7 +248,7 @@ Directories
 SRC_DIR = os.path.dirname(os.path.dirname(__file__))
 DATA_DIR = os.path.join(SRC_DIR, "data")
 SCREENSHOTS_DIR = os.path.join(SRC_DIR, "screenshots")
-LIB_DIR = os.path.join(SRC_DIR, "lib")
+LIB_DIR = os.path.join(os.path.dirname(SRC_DIR), "lib")
 LIB_DIR_WIN = os.path.join(LIB_DIR, "windows")
 
 """
@@ -264,3 +264,9 @@ Unit detector
 UNIT_SIZE = 416
 UNIT_Y_START = 0.05
 UNIT_Y_END = 0.80
+
+"""
+Bluestacks
+"""
+BLUESTACKS_REG_PATH = "SOFTWARE\BlueStacks_nxt"
+BLUESTACKS_EXE_NAME = "HD-Player.exe"
